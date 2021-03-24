@@ -1,33 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
+import './List.css';
 
 const List = ({todoList}) => (
-    <ul id="my-ul">
-        {todoList.map(todo =>
-        <input type="checkbox" checked={checked ? "checked" : ""}/>
-    )}
-    </ul>
+    <>
+        <ul id="my-ul">
+            {todoList.map(todo =>
+                <li value={todo.id}> {todo.name}
+                <button class="list">
+                    Click me
+                </button>
+                </li>
+
+        )}
+        </ul>
+    </>
 )
 
-List.PropTypes = {
-    todoList: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            completed: PropTypes.bool.isRequired,
-            name: PropTypes.string.isRequired,
-        }).isRequired
-    ).isRequired,
-}
-
-Checkbox.propTypes = {
-    label: PropTypes.string.isRequired,
-    checked: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired
-}
-
-Checkbox.defaultProps = {
-    label: 'Checkbox',
-    checked: false
-}
 
 export default List;
