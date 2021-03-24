@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import _map from 'lodash/map';
 import List from "./List"
+import Create from "./Create"
 
 class Todo extends Component {
     constructor(props) {
@@ -16,6 +18,19 @@ class Todo extends Component {
             ],
         }
     }
+    handleAddTodo(text) {
+        const todos = this.state.todoList;
+        let ids = _map(todos, 'id');
+        let max = Math.max(...ids);
+        todos.push({
+            id: max+1,
+            name: text,
+            completed: false,
+        });
+        
+        this.setState({todos});
+    }
+
     countTodoCompleted() {
         let todoList = this.state.todoList;
         return todoList.filter(todo => todo.completed).length;
@@ -25,8 +40,8 @@ class Todo extends Component {
             <div>
                 <div id="my-div" class="header">
                     <h2>Have {this.countTodoCompleted() } todo list</h2>
-                    <input type="text" id="my-input" placeholder="Title..."/>
-                    <span class="add-btn">Add</span>
+                    <Create handleSaveTodo={this.handleAddTodo} />
+                    
                 </div>
                 <List todoList={this.state.todoList}/>
 

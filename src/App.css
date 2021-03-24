@@ -60,7 +60,7 @@ ul li {
   list-style-type: none;
   background: #eee;
   transition: 0.3s;
-  
+
   user-select: none;
 }
 
@@ -101,7 +101,7 @@ ul li.checked::before {
 .close:hover {
   background: #f44336;
   color: #fff;
-  
+
 }
 
 .header {
