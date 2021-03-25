@@ -2,22 +2,36 @@ import React from "react";
 
 
 class Create extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
+
     handleSaveTodo() {
-        let text = this.todo.getValue();
-        this.props.handleSaveTodo(text);
+      this.props.handleSaveTodo(this.state.text);
+      this.setState({
+        text: '',
+      })
+    }
+    handleClick(e) {
+      this.setState({
+        text: e.target.value
+      })
     }
 
     render() {
         return (
-            <>
-                <input name="todo"
-                    type="text" 
-                    id="my-input" 
+            <div>
+                <input
+                    name="todo"
+                    type="text"
+                    id="my-input"
                     placeholder="Title..."
-                    ref={(e) => {this.todo = e;}}
+                    value={this.state.text}
+                    onChange={e => {this.handleClick(e)}}
                 />
-                <span class="add-btn" onClick={this.handleSaveTodo}>Add</span>
-            </>
+                <span className="add-btn" onClick={() => { this.handleSaveTodo() }}>Add</span>
+            </div>
         )
     }
 }
