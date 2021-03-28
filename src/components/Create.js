@@ -26,7 +26,7 @@ class Create extends React.Component {
                     name="todo"
                     type="text"
                     id="my-input"
-                    placeholder="Title..."
+                    placeholder="Enter todo you want..."
                     value={this.state.text}
                     onChange={e => {this.handleClick(e)}}
                 />
