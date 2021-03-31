@@ -1,13 +1,16 @@
 // import logo from './logo.svg';
 import React, { useState } from "react";
-import { Layout } from 'antd';
+import { Layout } from "antd";
+import "antd/dist/antd.css";
 // const { Header, Sider, Content } = Layout;
-import './App.css';
-import Todo from './components/Todo';
-import SideBar from './components/Layouts/SideBar';
-// import Header from './components/Layouts/Header';
+// import './App.css';
+import Todo from "./components/Todo";
+import SideBar from "./components/Layouts/SideBar";
+import Header from "./components/Layouts/Header";
+import ROutes from "./Router";
+import Routes from "./Router";
 
-const { Content } = Layout
+const { Content } = Layout;
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -17,18 +20,22 @@ function App() {
   }
 
   return (
-    <Layout>
+    <Layout style={{ minHeight: "100vh" }}>
       <SideBar collapsed={collapsed} />
-      <Layout>
-        {/* <Header collapsed={collapsed} changeToggle={changeToggle} /> */}
-        <Content/>
+      <Layout className="site-layout">
+        <Header collapsed={collapsed} changeToggle={changeToggle} />
+        <Content
+          className="site-layout-background"
+          style={{
+            margin: "24px 16px",
+            padding: 24,
+            minHeight: 280,
+          }}
+        >
+          <Routes />
+        </Content>
       </Layout>
     </Layout>
-    // <div className="App">
-    //   <header>
-    //   <Todo />
-    //   </header>
-    // </div>
   );
 }
 

@@ -9,8 +9,8 @@ import Routes from './Router';
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      {/* <App /> */}
-        <Routes />
+      <App />
+      {/* <Routes /> */}
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -12,6 +12,7 @@ import Filter from "./Filter"
 import About from "./router/about"
 import Contact from "./router/contact"
 import Page from "./router/page"
+import {  Row, Col,Input  } from "antd";
 
 class Todo extends Component {
     constructor(props) {
@@ -71,13 +72,19 @@ class Todo extends Component {
       return (
         <div>
           <div id="my-div" className="header">
+          <Row>
+            <Col span={24} offset={10}>
             <h2>Have {this.countTodoCompleted()} todo list</h2>
-            <Create handleSaveTodo={text => {this.handleAddTodo(text)}} />
+            </Col>
+            <Col span={24}>
+              <Create handleSaveTodo={text => {this.handleAddTodo(text)}} />
+            </Col>
+          </Row>
           </div>
           <Filter onClick={value => this.filter(value)} />
 
           <List todoList={this.state.todoList} filter={this.state.filter} changeStatus={this.changeStatus} removeItem={this.removeItem}/>
-          <Router>
+          {/* <Router>
             <div>
               <nav>
                 <ul>
@@ -116,7 +123,7 @@ class Todo extends Component {
                 </Route>
               </Switch>
             </div>
-          </Router>
+          </Router> */}
       </div>
       )
     }

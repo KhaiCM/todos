@@ -12,7 +12,7 @@ import Dashboard from "./components/auth/Dashboard";
 import About from "./components/router/about";
 import Contact from "./components/router/contact";
 import Page from "./components/router/page";
-import AntDemo from "./components/auth/DashboardAnt";
+import Todos from "./components/Todo"
 
 const NotFound = () => <div>Not found</div>
 const Routes = () => (
@@ -24,7 +24,7 @@ const Routes = () => (
     <Route exact path="/about" component={About} />
     <Route exact path="/contact" component={Contact} />
     <Route exact path="/page" component={Page} />
-    <Route exact path="/antdesign" component={AntDemo} />
+    <Route exact path="/todos" component={Todos} />
     <Route component={NotFound} />
   </Switch>
 )
